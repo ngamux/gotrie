@@ -17,8 +17,8 @@ type node struct {
 	data     interface{}
 }
 
-func NewTrie(config Config) Trie {
-	return Trie{
+func NewTrie(config Config) *Trie {
+	return &Trie{
 		root: &node{
 			children: make(map[string]*node),
 		},
