@@ -23,6 +23,14 @@ var keyPathDummies = []struct {
 }
 
 func TestNewTrie(t *testing.T) {
+	trie := NewTrie()
+
+	if trie.Size() != 0 {
+		t.Errorf("trie size should 0, got %d", trie.Size())
+	}
+}
+
+func TestNewTrieWithConfig(t *testing.T) {
 	trie := NewTrie(Config{})
 
 	if trie.Size() != 0 {
