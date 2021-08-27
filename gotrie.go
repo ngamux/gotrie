@@ -54,8 +54,9 @@ func (trie *Trie) Put(key string, data interface{}) {
 
 func (trie *Trie) Get(key string) interface{} {
 	trie.mu.RLock()
-	keys := trie.buildKey(key)
 	defer trie.mu.RUnlock()
+
+	keys := trie.buildKey(key)
 	root := trie.root
 	for _, key := range keys {
 		child := root.children[key]
