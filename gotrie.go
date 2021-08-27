@@ -17,13 +17,18 @@ type node struct {
 	data     interface{}
 }
 
-func NewTrie(config Config) *Trie {
-	return &Trie{
+func NewTrie(config ...Config) *Trie {
+	trie := &Trie{
 		root: &node{
 			children: make(map[string]*node),
 		},
-		config: config,
 	}
+
+	if len(config) > 0 {
+		trie.config = config[0]
+	}
+
+	return trie
 }
 
 func (trie *Trie) buildKey(key string) []string {
