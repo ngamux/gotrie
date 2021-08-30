@@ -63,6 +63,11 @@ func TestGet(t *testing.T) {
 			t.Errorf("trie should contains %s, got %s", dummy.Data, value)
 		}
 	}
+
+	value := trie.Get("named")
+	if value != nil {
+		t.Errorf("trie should contains %v, got %s", nil, value)
+	}
 }
 
 func TestBuildKey(t *testing.T) {
